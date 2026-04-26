@@ -13,3 +13,4 @@ node_modules/
 .supabase/
 dist/
 .wrangler/
+supabase/.temp/
