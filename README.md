@@ -22,7 +22,7 @@ Frontend → Worker API → Supabase DB
 3. Add environment variables
 4. Run frontend and backend
 
-
+![Screen shots](image.png)
 
 ## 📌 Author
 Abhilok Reddy
