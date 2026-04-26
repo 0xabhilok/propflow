@@ -1,0 +1,39 @@
+name = "propflow-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Workers environment
+[vars]
+ENVIRONMENT = "production"
+
+# Secrets (set via: wrangler secret put SECRET_NAME)
+# SUPABASE_URL
+# SUPABASE_SERVICE_KEY
+# JWT_SECRET
+
+# Cloudflare D1 (optional local cache)
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "propflow-cache"
+# database_id = "your-d1-database-id"
+
+# Cloudflare R2 (for file uploads: lease docs, maintenance images)
+# [[r2_buckets]]
+# binding = "STORAGE"
+# bucket_name = "propflow-files"
+
+[dev]
+port = 8787
+local_protocol = "http"
+
+[env.staging]
+name = "propflow-api-staging"
+vars = { ENVIRONMENT = "staging" }
+
+[env.production]
+name = "propflow-api"
+vars = { ENVIRONMENT = "production" }
+routes = [
+  { pattern = "api.propflow.yourdomain.com/*", zone_name = "yourdomain.com" }
+]
