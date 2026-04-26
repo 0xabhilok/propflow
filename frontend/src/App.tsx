@@ -149,9 +149,12 @@ export default function App() {
     );
   }
 
-  if (!session) {
-    return <LoginScreen onLogin={signIn} />;
-  }
+ // TEMP bypass auth
+const fakeSession = true;
+
+if (!fakeSession) {
+  return <LoginScreen onLogin={signIn} />;
+}
 
   const PageComponent = {
     dashboard: DashboardPage,
